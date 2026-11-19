@@ -46,6 +46,17 @@ The contact form validates its fields and posts to a Formspree endpoint when con
 3. Set the build command to `npm run build` and publish directory to `dist`.
 4. Deploy the site. Future pushes to the connected branch trigger builds.
 
+## Deploy to Railway
+
+The repository includes Railway configuration. Railway builds the Vite site with `npm run build` and serves the generated `dist` files using `npm start` on Railway's assigned port.
+
+1. Open [Railway](https://railway.com/) and create a project using **Deploy from GitHub repo**.
+2. Connect GitHub if prompted, then select `UshaniDhanushika/Ushani_Portfolio_Web` and deploy the `main` branch.
+3. After the deployment succeeds, open the service's **Settings → Networking** and choose **Generate Domain**.
+4. Visit the generated `*.up.railway.app` address to confirm the portfolio and `/cv.html` load.
+
+If you want the contact form to send messages directly, add `VITE_FORMSPREE_ENDPOINT` as a Railway service variable and trigger a new deployment. Until then, the form prepares an email draft.
+
 ## Deploy to GitHub Pages
 
 The repository includes a GitHub Actions workflow in `.github/workflows` for publishing the Vite build. Push the project to the `main` branch, then open the repository's **Settings → Pages** and choose **GitHub Actions** as the build and deployment source. The workflow builds and publishes the site when changes are pushed to `main`.
